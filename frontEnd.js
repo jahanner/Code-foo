@@ -26,6 +26,7 @@ function apiCaller(type) {
                rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.name+"</h3></p><p> "+response.data[i].metadata.description+"</p>";
                 }
             document.getElementById("divDump").appendChild(rowDiv);
+            
             }
         }
     });

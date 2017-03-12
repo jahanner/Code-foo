@@ -6,10 +6,12 @@
 </head>
 <body>
     <div id='table'>
-        <div class='buttons'>
-            <input type='button' onclick ="apiCaller('videos')" value=Videos>
-            <input type='button' onclick ="apiCaller('articles')" value=Articles>
-        </div>
+        <!-- <div class='dropdown'> -->
+            <div class='buttons'>
+                <a class='button' onclick ="apiCaller('videos')" id='leftButton'>Videos</a>
+                <a class='button' onclick ="apiCaller('articles')" id='rightButton'>Articles</a>
+            </div>
+        <!-- </div> -->
     </div>
     <div id='divDump'>
     </div>
