@@ -1,4 +1,5 @@
 
+
 function apiCaller(type) {
     var url = 'http://ign-apis.herokuapp.com/' + type + '?startIndex=0&count=10';
     $.ajax({
@@ -20,13 +21,13 @@ function apiCaller(type) {
             for (var i = 0; i < response.data.length; i++){
                rowDiv = document.createElement("div");
                rowDiv.id = "content" + i;
-               if (type === "articles") {rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.headline+"</h3></p><p> "+response.data[i].metadata.subHeadline+"</p>";
+               if (type === "articles") {rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.headline+"</h3></p><p> "+response.data[i].metadata.subHeadline+"</p>"+'<img src="'+response.data[i].thumbnails[0].url+'" />';
                 }
            else {
                rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.name+"</h3></p><p> "+response.data[i].metadata.description+"</p>";
+
                 }
             document.getElementById("divDump").appendChild(rowDiv);
-            
             }
         }
     });

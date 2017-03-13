@@ -7,14 +7,23 @@ body {
     text-align:center;
 
 }
-a#rightButton:focus
-{
-    background: red;
+/*a:focus {
+    font-size: 18px;
+    border: 2px solid green;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }
-a#leftButton:focus
-{
-    background: red;
-}
+a:target {
+    font-size: 18px;
+    border: 2px solid red;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}*/
+
 
 #leftButton {
     display: inline-block;
@@ -32,7 +41,7 @@ a#leftButton:focus
     display: inline-block;
     width: 220px;
     height: 25px;
-    background: red;
+    background: white;
     padding: 10px;
     text-align: center;
     border-radius: 5px;

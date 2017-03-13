@@ -77,4 +77,3 @@ function boggle(grid, x, y, chain, solutions) {
     }
 }
 console.log(boggle(grid, 0, 0, [],[]));
-    //if sum of chain > 9 then do nothing
