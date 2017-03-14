@@ -17,25 +17,50 @@ function apiCaller(type) {
             while(myNode.lastChild) {
                 myNode.removeChild(myNode.lastChild);
             }
-
+            //
             for (var i = 0; i < response.data.length; i++){
-               rowDiv = document.createElement("div");
-               rowDiv.id = "content" + i;
-               if (type === "articles") {rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.headline+"</h3></p><p>          "+"<div>"+response.data[i].metadata.subHeadline+"</div></p>"+'<img src="'+response.data[i].thumbnails[0].url+'" />';
-                }
-               else {
-                   rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.name+"</h3></p><p> "+response.data[i].metadata.description+"</p>";
+               shownDiv = document.createElement("div");
+                   shownDiv.className='shownDiv';
+               hiddenDiv = document.createElement("div");
+                   hiddenDiv.className='hiddenDiv';
+                   hiddenDiv.style.visibility='hidden';
+               numDiv = document.createElement("div");
+               titleDiv = document.createElement("div");
+               textDiv = document.createElement("div");
+               dateDiv = document.createElement("div");
+               lengthDiv = document.createElement("div");
 
-                }
-            document.getElementById("divDump").appendChild(rowDiv);
-            // $('#rightButton').on('click', function (hideRButton()
-            // {
-            // $(resonse.data[i].thumbnails[0].url).hide();
-            // }
-            // $('#leftButton').on('click', function (hideRButton()
-            // {
-            // $(resonse.data[i].thumbnails[0].url).hide();
-            // }
+               shownDiv.id = "item # " + (i + 1);
+
+               if (type === "articles") {
+                   titleDiv.append(response.data[i].metadata.headline);
+                       textDiv.append(response.data[i].metadata.subHeadline);
+                       dateDiv.append(response.data[i].metadata.publishDate);
+                       numDiv.append(i+1);
+                       shownDiv.append(numDiv, titleDiv, textDiv, dateDiv)
+                       document.getElementById("divDump").appendChild(shownDiv);
+                   hiddenDiv.append('<img src="'+ response.data[i].thumbnails[0].url + '" />');
+                       hiddenDiv.id=(i+1);
+
+                //    hiddenDiv.css({'background-image' : 'url('+response.data[i].thumbnails[0].url+')','background-repeat': 'no-repeat'});
+                       document.getElementById('divDump').appendChild(hiddenDiv);
+
+               }
+               else {
+                   titleDiv.append(response.data[i].metadata.name);
+                       textDiv.append(response.data[i].metadata.description);
+                       dateDiv.append(response.data[i].metadata.publishDate);
+                       numDiv.append(i+1);
+                       lengthDiv.append(response.data[i].metadata.duration);
+                       shownDiv.append(numDiv, titleDiv, textDiv, dateDiv, lengthDiv)
+                       document.getElementById("divDump").appendChild(shownDiv);
+                   hiddenDiv.append('<img src="'+ response.data[i].thumbnails[0].url + '" />');
+                       document.getElementById('divDump').appendChild(hiddenDiv);
+                    }
+                    $('.shownDiv').on('hover', function (){
+                        hiddenDiv.id.style.visibility='visible';
+                    });
+
             }
         }
     });

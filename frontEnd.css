@@ -1,56 +1,40 @@
 body {
-    width: 500px;
+    width: 600px;
     margin: auto;
     display: block;
     text-align: center;
-    border: 5px solid black;
+    border: 3px solid black;
     text-align:center;
 
 }
-/*#leftButton:focus {
-    font-size: 18px;
-    border: 2px solid green;
-    border-radius: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: white;
-}
-#leftButton:target {
-    font-size: 18px;
-    border: 2px solid red;
-    border-radius: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-}*/
 
 
 #leftButton {
     display: inline-block;
-    width: 220px;
-    height: 25px;
+    width: 270px;
+    height: 20px;
     background: red;
     padding: 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 25px/50px;
     color: black;
     font-weight: bold;
     text-decoration-color: red;
 }
 #rightButton {
     display: inline-block;
-    width: 220px;
-    height: 25px;
-    background: white;
+    width: 270px;
+    height: 20px;
+    background: red;
     padding: 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 25px/50px;
     color: black;
     font-weight: bold;
     text-decoration-color: red;
 }
 .buttons {
-    border: 3px solid red;
+    border: 2px solid red;
 }
 /*.buttons {
    display:block;
