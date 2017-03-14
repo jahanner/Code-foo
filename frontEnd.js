@@ -57,9 +57,8 @@ function apiCaller(type) {
                    hiddenDiv.append('<img src="'+ response.data[i].thumbnails[0].url + '" />');
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
-                    $('.shownDiv').on('hover', function (){
-                        hiddenDiv.id.style.visibility='visible';
-                    });
+                    document.getElementByClassName("shownDiv").addEventListener("click", function() {
+                    console.log("hello", this);})
 
             }
         }
