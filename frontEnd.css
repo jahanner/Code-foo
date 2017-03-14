@@ -7,15 +7,15 @@ body {
     text-align:center;
 
 }
-/*a:focus {
+/*#leftButton:focus {
     font-size: 18px;
     border: 2px solid green;
     border-radius: 100px;
     width: 100px;
     height: 100px;
-    background-color: red;
+    background-color: white;
 }
-a:target {
+#leftButton:target {
     font-size: 18px;
     border: 2px solid red;
     border-radius: 100px;

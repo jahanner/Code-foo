@@ -21,13 +21,21 @@ function apiCaller(type) {
             for (var i = 0; i < response.data.length; i++){
                rowDiv = document.createElement("div");
                rowDiv.id = "content" + i;
-               if (type === "articles") {rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.headline+"</h3></p><p> "+response.data[i].metadata.subHeadline+"</p>"+'<img src="'+response.data[i].thumbnails[0].url+'" />';
+               if (type === "articles") {rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.headline+"</h3></p><p>          "+"<div>"+response.data[i].metadata.subHeadline+"</div></p>"+'<img src="'+response.data[i].thumbnails[0].url+'" />';
                 }
-           else {
-               rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.name+"</h3></p><p> "+response.data[i].metadata.description+"</p>";
+               else {
+                   rowDiv.innerHTML = "<p> <h3>"+response.data[i].metadata.name+"</h3></p><p> "+response.data[i].metadata.description+"</p>";
 
                 }
             document.getElementById("divDump").appendChild(rowDiv);
+            // $('#rightButton').on('click', function (hideRButton()
+            // {
+            // $(resonse.data[i].thumbnails[0].url).hide();
+            // }
+            // $('#leftButton').on('click', function (hideRButton()
+            // {
+            // $(resonse.data[i].thumbnails[0].url).hide();
+            // }
             }
         }
     });
