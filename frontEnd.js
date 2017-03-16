@@ -6,13 +6,7 @@ function startIndex() {
 }
 
 function apiCaller(type) {
-    // if (pagination) {
-    //     $("#pagination").on("click", function() {
-    //     index = startIndex(type);
-    // })}
-    // else {
-    //     index = 0;
-    // }
+
     if (type != globalType){
         index = 0;
         globalType = type;
@@ -41,42 +35,58 @@ function apiCaller(type) {
                    hiddenDiv.className='hiddenDiv';
                    hiddenDiv.style.display='none';
                numDiv = document.createElement("div");
+                   numDiv.className = 'numDiv';
                titleDiv = document.createElement("div");
+                   titleDiv.className = 'titleDiv';
                textDiv = document.createElement("div");
-            //    dateDiv = document.createElement("div");
+                   textDiv.className = 'textDiv';
                lengthDiv = document.createElement("div");
+                   lengthDiv.className = 'lengthDiv';
 
                shownDiv.id = "item # " + (i + 1);
+               ign = document.createElement('div');
+                    ign.className = 'IGN';
+               title = document.createElement('div');
+                    title.className = 'title';
 
                if (type === "articles") {
                    titleDiv.append(response.data[i].metadata.headline);
-                       textDiv.append(response.data[i].metadata.subHeadline);
-                       numDiv.append(index+i+1);
-                       shownDiv.append(numDiv, titleDiv, textDiv)
-                       document.getElementById("divDump").appendChild(shownDiv);
-                       var img = document.createElement('img');
-                       img.src =  response.data[i].thumbnails[0].url;
-                   hiddenDiv.append(img);
+                        titleDiv.className = 'titleDiv';
+                   title.append(response.data[i].metadata.headline);
+                   ign.append("GO TO IGN");
+                   textDiv.append(response.data[i].metadata.subHeadline);
+                        textDiv.className = 'textDiv';
+                   numDiv.append(index+i+1);
+                   shownDiv.append(numDiv, titleDiv, textDiv);
+                   document.getElementById("divDump").appendChild(shownDiv);
+                   var img = document.createElement('img');
+                   img.src =  response.data[i].thumbnails[0].url;
+                   hiddenDiv.append(img, title, ign);
                        hiddenDiv.id=(i+1);
                        document.getElementById('divDump').appendChild(hiddenDiv);
 
                }
                else {
                    titleDiv.append(response.data[i].metadata.name);
+                       title.append(response.data[i].metadata.name);
+                       ign.append("GO TO IGN");
                        textDiv.append(response.data[i].metadata.description);
-                    //    dateDiv.append(response.data[i].metadata.publishDate);
                        numDiv.append(index+i+1);
-                       minSec = '';
-                       minutes = response.data[i].metadata.duration / 60;
-                       seconds = response.data[i].metadata.duration % 60;
-                       
-
-                       lengthDiv.append(response.data[i].metadata.duration);
+                       var minSec = '';
+                       var m = Math.floor(response.data[i].metadata.duration / 60);
+                       var s = Math.floor(response.data[i].metadata.duration % 60);
+                       minutes = m.toString();
+                       seconds = s.toString();
+                       if (seconds.length !== 2) {
+                           seconds += '0';
+                       }
+                       minSec += minutes +":" + seconds;
+                       lengthDiv.append(minSec);
                        shownDiv.append(numDiv, titleDiv, textDiv, lengthDiv);
                        document.getElementById("divDump").appendChild(shownDiv);
                        var img = document.createElement('img');
                        img.src =  response.data[i].thumbnails[0].url;
-                   hiddenDiv.append(img);
+                   hiddenDiv.append(img, title, ign);
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
                 }
@@ -88,3 +98,4 @@ function apiCaller(type) {
         }
     });
 }
+apiCaller(globalType);
