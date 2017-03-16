@@ -1,7 +1,23 @@
-
+var index = 0;
+var globalType = 'videos';
+function startIndex() {
+    index += 10;
+    apiCaller(globalType);
+}
 
 function apiCaller(type) {
-    var url = 'http://ign-apis.herokuapp.com/' + type + '?startIndex=0&count=10';
+    // if (pagination) {
+    //     $("#pagination").on("click", function() {
+    //     index = startIndex(type);
+    // })}
+    // else {
+    //     index = 0;
+    // }
+    if (type != globalType){
+        index = 0;
+        globalType = type;
+    }
+    var url = 'http://ign-apis.herokuapp.com/' + type + '?startIndex=' + index + '&count=10';
     $.ajax({
         url: url,
         // The name of the callback parameter as specified by the YQL service
@@ -23,11 +39,11 @@ function apiCaller(type) {
                    shownDiv.className='shownDiv';
                hiddenDiv = document.createElement("div");
                    hiddenDiv.className='hiddenDiv';
-                   hiddenDiv.style.visibility='hidden';
+                   hiddenDiv.style.display='none';
                numDiv = document.createElement("div");
                titleDiv = document.createElement("div");
                textDiv = document.createElement("div");
-               dateDiv = document.createElement("div");
+            //    dateDiv = document.createElement("div");
                lengthDiv = document.createElement("div");
 
                shownDiv.id = "item # " + (i + 1);
@@ -35,32 +51,40 @@ function apiCaller(type) {
                if (type === "articles") {
                    titleDiv.append(response.data[i].metadata.headline);
                        textDiv.append(response.data[i].metadata.subHeadline);
-                       dateDiv.append(response.data[i].metadata.publishDate);
-                       numDiv.append(i+1);
-                       shownDiv.append(numDiv, titleDiv, textDiv, dateDiv)
+                       numDiv.append(index+i+1);
+                       shownDiv.append(numDiv, titleDiv, textDiv)
                        document.getElementById("divDump").appendChild(shownDiv);
-                   hiddenDiv.append('<img src="'+ response.data[i].thumbnails[0].url + '" />');
+                       var img = document.createElement('img');
+                       img.src =  response.data[i].thumbnails[0].url;
+                   hiddenDiv.append(img);
                        hiddenDiv.id=(i+1);
-
-                //    hiddenDiv.css({'background-image' : 'url('+response.data[i].thumbnails[0].url+')','background-repeat': 'no-repeat'});
                        document.getElementById('divDump').appendChild(hiddenDiv);
 
                }
                else {
                    titleDiv.append(response.data[i].metadata.name);
                        textDiv.append(response.data[i].metadata.description);
-                       dateDiv.append(response.data[i].metadata.publishDate);
-                       numDiv.append(i+1);
+                    //    dateDiv.append(response.data[i].metadata.publishDate);
+                       numDiv.append(index+i+1);
+                       minSec = '';
+                       minutes = response.data[i].metadata.duration / 60;
+                       seconds = response.data[i].metadata.duration % 60;
+                       
+
                        lengthDiv.append(response.data[i].metadata.duration);
-                       shownDiv.append(numDiv, titleDiv, textDiv, dateDiv, lengthDiv)
+                       shownDiv.append(numDiv, titleDiv, textDiv, lengthDiv);
                        document.getElementById("divDump").appendChild(shownDiv);
-                   hiddenDiv.append('<img src="'+ response.data[i].thumbnails[0].url + '" />');
+                       var img = document.createElement('img');
+                       img.src =  response.data[i].thumbnails[0].url;
+                   hiddenDiv.append(img);
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
-                    document.getElementByClassName("shownDiv").addEventListener("click", function() {
-                    console.log("hello", this);})
+                }
+                    $(".shownDiv").on("click", function() {
+                    $("#divDump .hiddenDiv").css("display", "none");
+                    $(this.nextElementSibling).css("display", "unset");
 
-            }
+            ;})
         }
     });
 }
