@@ -77,7 +77,7 @@ function apiCaller(type) {
                        });
                    });
                    $(".videoButton").css("background-color", "white", "color", "red");
-                   
+
                }
                else {
                    $(".videoButton").css("background-color", "red", "color", "white");

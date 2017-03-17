@@ -18,7 +18,7 @@ body {
    margin: 24px 0 0 0;
 }
 .shownDiv {
-    width: 306px;
+    width: 350px;
     height: 38px;
     overflow: hidden;
     border-bottom:1px dotted #ccc;
@@ -40,26 +40,30 @@ body {
 }
 .titleDiv {
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     color: black;
+    display: table-cell;
+    vertical-align: middle;
 }
 .textDiv {
-    display: table;
+    display: inline-table;
     float: left;
     width: 256px;
     height: 38px;
     padding: 0 5px 0 0;
-    display: table-cell;
-    vertical-align: middle;
+    color: #777;
+    font-size: 11px;
 }
 .lengthDiv {
-    display: block;
-    height: 38px;
-    margin: 0 5px 0 0;
-    line-height: 40px;
+    float:right;
+    display: inline-table;
+    margin: 6px 10px 0 10px;
+    width: 26px;
+    height: 26px;
+    line-height: 1px;
     font-size: 12px;
+    color: #777;
     font-weight: bold;
-    color: #767676;
 }
 .IGN {
     position: absolute;
@@ -70,7 +74,7 @@ body {
     font-weight: bold;
     font-size: 100%;
     background-color: red;
-    left: 200px;
+    left: 350px;
     padding: 5px;
     margin-top: 10px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -98,13 +102,14 @@ body {
     color: #777;
     font-weight: bold;
     font-size: 15px;
+    margin-left: 100px;
 }
 #backToTop {
     width: 100px;
     height: 15px;
     background: transparent;
     padding: 10px;
-    margin-left: 150px;
+    margin-left: 180px;
     color: #777;
     font-weight: bold;
     font-size: 15px;
