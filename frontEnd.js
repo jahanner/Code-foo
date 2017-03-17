@@ -1,7 +1,13 @@
 var index = 0;
 var globalType = 'videos';
 function startIndex() {
+    //for pagination
     index += 10;
+    apiCaller(globalType);
+}
+function firstIndex() {
+    //to get back to the top
+    index = 0;
     apiCaller(globalType);
 }
 
@@ -28,6 +34,7 @@ function apiCaller(type) {
                 myNode.removeChild(myNode.lastChild);
             }
             //
+
             for (var i = 0; i < response.data.length; i++){
                 //create div for each and give them class names.
                shownDiv = document.createElement("div");
@@ -47,11 +54,29 @@ function apiCaller(type) {
                     ign.className = 'IGN';
                title = document.createElement('div');
                     title.className = 'title';
+               shownDiv.append(numDiv, titleDiv, textDiv, lengthDiv);
 
                shownDiv.id = "item # " + (i + 1);
 
-               
 
+               if (type ==='articles') {
+                   $(".articleButton").css("background-color", "red", "color", "white");
+                   $(this).css("background-color", "red", "color", "white");
+                   $(".articleButton").hover(function() {
+                       $(this).css("text-decoration", "underline");
+                   });
+                   $(".videoButton").css("background-color", "white", "color", "red");
+                   $(this).css("text-decoration", "none");
+               }
+               else {
+                   $(".videoButton").css("background-color", "red", "color", "white");
+                   $(this).css("background-color", "red", "color", "white");
+                   $(".videoButton").hover(function() {
+                       $(this).css("text-decoration", "underline");
+                   });
+                   $(".articleButton").css("background-color", "white", "color", "red");
+
+               }
                if (type === "articles") {
                    titleDiv.append(response.data[i].metadata.headline);
                    title.append(response.data[i].metadata.headline);
@@ -59,6 +84,7 @@ function apiCaller(type) {
                    textDiv.append(response.data[i].metadata.subHeadline);
                    numDiv.append(index+i+1);
                    shownDiv.append(numDiv, titleDiv, textDiv);
+
                    document.getElementById("divDump").appendChild(shownDiv);
                    var img = document.createElement('img');
                    img.src =  response.data[i].thumbnails[1].url;
@@ -68,24 +94,25 @@ function apiCaller(type) {
                }
                else {
                    titleDiv.append(response.data[i].metadata.name);
-                       title.append(response.data[i].metadata.name);
-                       ign.append("GO TO IGN");
-                       textDiv.append(response.data[i].metadata.description);
-                       numDiv.append(index+i+1);
-                       var minSec = '';
-                       var m = Math.floor(response.data[i].metadata.duration / 60);
-                       var s = Math.floor(response.data[i].metadata.duration % 60);
-                       minutes = m.toString();
-                       seconds = s.toString();
-                       if (seconds.length !== 2) {
-                           seconds += '0';
-                       }
-                       minSec += minutes +":" + seconds;
-                       lengthDiv.append(minSec);
-                       shownDiv.append(numDiv, titleDiv, lengthDiv, textDiv);
-                       document.getElementById("divDump").appendChild(shownDiv);
-                       var img = document.createElement('img');
-                       img.src =  response.data[i].thumbnails[1].url;
+                   title.append(response.data[i].metadata.name);
+                   ign.append("GO TO IGN");
+                   textDiv.append(response.data[i].metadata.description);
+                   numDiv.append(index+i+1);
+                   var minSec = '';
+                   var m = Math.floor(response.data[i].metadata.duration / 60);
+                   var s = Math.floor(response.data[i].metadata.duration % 60);
+                   minutes = m.toString();
+                   seconds = s.toString();
+                   if (seconds.length !== 2) {
+                       seconds += '0';
+                   }
+                   minSec += minutes +":" + seconds;
+                   lengthDiv.append(minSec);
+                   shownDiv.append(numDiv, titleDiv, lengthDiv, textDiv);
+
+                   document.getElementById("divDump").appendChild(shownDiv);
+                   var img = document.createElement('img');
+                   img.src =  response.data[i].thumbnails[1].url;
                     //    rowDivHidden.css({'background-image' : 'url('+jsonReturn.data[i].thumbnails[2].url+')','background-repeat': 'no-repeat'});
                    hiddenDiv.append(img, title, ign);
                        document.getElementById('divDump').appendChild(hiddenDiv);

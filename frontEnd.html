@@ -7,13 +7,15 @@
 <body>
     <div id='table'>
         <div class='buttons'>
-            <span class='videoButton' onclick ="apiCaller('videos')" id='leftButton'>Videos</span>
-            <span class='articleButton' onclick ="apiCaller('articles')" id='rightButton'>Articles</span>
+            <span class='videoButton' onclick ="apiCaller('videos')">Videos</span>
+            <span class='articleButton' onclick ="apiCaller('articles')">Articles</span>
+        </div>
+        <div id='divDump'>
         </div>
     </div>
-    <div id='divDump'>
-    </div>
-    <a class='button' onclick="startIndex()" id='pagination'>More</a>
+    
+    <a class='button' onclick="startIndex()" id='pagination'>See more...</a>
+    <a class='button' onclick="firstIndex()" id='backToTop'>Back to top</a>
     <script type='text/javascript' src='frontEnd.js'>
     </script>
 </body>
