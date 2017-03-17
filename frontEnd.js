@@ -22,9 +22,9 @@ function apiCaller(type) {
         url: url,
         // The name of the callback parameter as specified by the YQL service
         jsonp: "callback",
-        //Tell jQuery we're expection jsonp
+        //Tell jQuery I'm expection jsonp
         dataType: 'jsonp',
-        //Tell YQL what we want and that we want JSON
+        //Tell YQL what I want
         data: {
             format: 'json'
         },
@@ -33,7 +33,6 @@ function apiCaller(type) {
             while(myNode.lastChild) {
                 myNode.removeChild(myNode.lastChild);
             }
-            //
 
             for (var i = 0; i < response.data.length; i++){
                 //create div for each and give them class names.
@@ -70,7 +69,7 @@ function apiCaller(type) {
                    $(".articleButton").css("background-color", "red", "color", "white");
                    $(this).css("background-color", "red", "color", "white");
                    $(function () {
-                   $(".articleButton").hover(function() {
+                       $(".articleButton").hover(function() {
                        $(this).addClass('hovered');
                    },
                        function () {
@@ -84,10 +83,10 @@ function apiCaller(type) {
                    $(".videoButton").css("background-color", "red", "color", "white");
                    $(this).css("background-color", "red", "color", "white");
                    $(function () {
-                   $(".videoButton").hover(function() {
+                       $(".videoButton").hover(function() {
                        $(this).addClass('hovered');
                    },
-                       function () {
+                        function () {
                            $(this).removeClass('hovered');
                        });
                    });
@@ -148,10 +147,14 @@ function apiCaller(type) {
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
                 }
-                //display hiddenDiv on click of shownDiv
+                    //display hiddenDiv on click of shownDiv and hide on click
                     $(".shownDiv").on("click", function() {
                     $("#divDump .hiddenDiv").css("display", "none");
                     $(this.nextElementSibling).css("display", "unset");
+                        $(".hiddenDiv").on("click", function() {
+                            $("#divDump .hiddenDiv").css("display", "none");
+                            $(this).css("display", "none");
+                    ;})
             ;})
         }
     });

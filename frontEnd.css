@@ -2,13 +2,11 @@ body {
     background-color: black;
 }
 #table {
-    width: 389px;
+    width: 360px;
     margin: 0 auto;
     display: table;
-    margin: 0 auto;
     background: #fff;
     padding-top: 5px;
-    
 }
 
 .hiddenDiv {
@@ -20,7 +18,7 @@ body {
 }
 .img {
     border: 3px solid white;
-    width: 345px;
+    width: 382px;
     height: 200px;
     overflow: hidden;
     background-size: cover;
@@ -57,23 +55,18 @@ body {
 }
 .textDiv {
     display: inline-table;
-    float: left;
     width: 256px;
     height: 38px;
     padding: 0 5px 0 0;
     color: #777;
-    font-size: 11px;
+    font-size: 13px;
 }
 .lengthDiv {
     float:right;
-    display: inline-table;
-    margin: 6px 10px 0 10px;
-    width: 26px;
-    height: 26px;
-    line-height: 1px;
     font-size: 12px;
     color: #777;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 .IGN {
     position: absolute;
@@ -104,6 +97,7 @@ body {
     background: transparent;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
 #pagination {
     width: 70px;
     height: 15px;
@@ -112,14 +106,13 @@ body {
     color: #777;
     font-weight: bold;
     font-size: 15px;
-    margin-left: 420px;
 }
 #backToTop {
     width: 100px;
     height: 15px;
     background: transparent;
     padding: 10px;
-    margin-left: 180px;
+    margin-left: 175px;
     color: #777;
     font-weight: bold;
     font-size: 15px;
@@ -127,28 +120,32 @@ body {
 
 .videoButton {
     display: inline-block;
-    width: 170px;
-    height: 12px;
-    padding: 10px;
-    text-align: center;
+    width: 178px;
+    height: 5px;
     border-radius: 15px 0 0 15px;
     font-weight: bold;
     border: 1px solid red;
     text-decoration: none;
+    padding: 10px;
+    line-height: 5px;
+    box-sizing: border-box;
+    text-align: center;
 }
 .videoButton.hovered {
     text-decoration: underline;
 }
 .articleButton {
     display: inline-block;
-    width: 170px;
-    height: 12px;
+    width: 178px;
+    height: 5px;
     padding: 10px;
-    text-align: center;
     border-radius:0 15px 15px 0px;
     font-weight: bold;
     border: 1px solid red;
     text-decoration: none;
+    line-height: 5px;
+    box-sizing: border-box;
+    text-align: center;
 }
 .articleButton.hovered {
     text-decoration: underline;
