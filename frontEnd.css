@@ -2,14 +2,15 @@ body {
     background-color: black;
 }
 #table {
-    width: 500px;
+    width: 389px;
     margin: 0 auto;
-    display: block;
-}
-#divDump {
     display: table;
     margin: 0 auto;
+    background: #fff;
+    padding-top: 5px;
+    
 }
+
 .hiddenDiv {
    position: relative;
    display: block;
@@ -52,6 +53,7 @@ body {
     color: black;
     display: table-cell;
     vertical-align: middle;
+    padding-top: 5px;
 }
 .textDiv {
     display: inline-table;

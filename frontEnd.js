@@ -65,6 +65,7 @@ function apiCaller(type) {
                     $(this).removeClass('hovered');
                 });
             });
+            //so I can change color and underline on click and hover
                if (type ==='articles') {
                    $(".articleButton").css("background-color", "red", "color", "white");
                    $(this).css("background-color", "red", "color", "white");
@@ -94,6 +95,7 @@ function apiCaller(type) {
 
                }
                if (type === "articles") {
+                   //add correct data to different divs, put them in shownDiv and hiddenDiv
                    titleDiv.append(response.data[i].metadata.headline);
                    title.append(response.data[i].metadata.headline);
                    ign.append("GO TO IGN");
@@ -105,6 +107,7 @@ function apiCaller(type) {
                    var img = document.createElement('img');
                    img.src =  response.data[i].thumbnails[1].url;
                    img.className = 'img';
+                   //make images backgrounds so they are easier to manipulate
                    $('.img').each(function() {
                       var background = $(this).data('background');
                       $(this).css('background-image', 'url('+background+')');
@@ -121,6 +124,7 @@ function apiCaller(type) {
                    textDiv.append(response.data[i].metadata.description);
                    numDiv.append(index+i+1);
                    var minSec = '';
+                   //make minute second format for display
                    var m = Math.floor(response.data[i].metadata.duration / 60);
                    var s = Math.floor(response.data[i].metadata.duration % 60);
                    minutes = m.toString();
@@ -144,6 +148,7 @@ function apiCaller(type) {
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
                 }
+                //display hiddenDiv on click of shownDiv
                     $(".shownDiv").on("click", function() {
                     $("#divDump .hiddenDiv").css("display", "none");
                     $(this.nextElementSibling).css("display", "unset");
