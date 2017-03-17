@@ -22,3 +22,11 @@ p {
     height: 600px;
     width: 500px;
 }
+.kong {
+    display: block;
+    margin: 0 auto;
+}
+.lady{
+    display: block;
+    margin: 0 auto;
+}
