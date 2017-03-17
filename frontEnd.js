@@ -29,6 +29,7 @@ function apiCaller(type) {
             }
             //
             for (var i = 0; i < response.data.length; i++){
+                //create div for each and give them class names.
                shownDiv = document.createElement("div");
                    shownDiv.className='shownDiv';
                hiddenDiv = document.createElement("div");
@@ -42,29 +43,28 @@ function apiCaller(type) {
                    textDiv.className = 'textDiv';
                lengthDiv = document.createElement("div");
                    lengthDiv.className = 'lengthDiv';
-
-               shownDiv.id = "item # " + (i + 1);
                ign = document.createElement('div');
                     ign.className = 'IGN';
                title = document.createElement('div');
                     title.className = 'title';
 
+               shownDiv.id = "item # " + (i + 1);
+
+               
+
                if (type === "articles") {
                    titleDiv.append(response.data[i].metadata.headline);
-                        titleDiv.className = 'titleDiv';
                    title.append(response.data[i].metadata.headline);
                    ign.append("GO TO IGN");
                    textDiv.append(response.data[i].metadata.subHeadline);
-                        textDiv.className = 'textDiv';
                    numDiv.append(index+i+1);
                    shownDiv.append(numDiv, titleDiv, textDiv);
                    document.getElementById("divDump").appendChild(shownDiv);
                    var img = document.createElement('img');
-                   img.src =  response.data[i].thumbnails[0].url;
+                   img.src =  response.data[i].thumbnails[1].url;
                    hiddenDiv.append(img, title, ign);
                        hiddenDiv.id=(i+1);
                        document.getElementById('divDump').appendChild(hiddenDiv);
-
                }
                else {
                    titleDiv.append(response.data[i].metadata.name);
@@ -82,10 +82,11 @@ function apiCaller(type) {
                        }
                        minSec += minutes +":" + seconds;
                        lengthDiv.append(minSec);
-                       shownDiv.append(numDiv, titleDiv, textDiv, lengthDiv);
+                       shownDiv.append(numDiv, titleDiv, lengthDiv, textDiv);
                        document.getElementById("divDump").appendChild(shownDiv);
                        var img = document.createElement('img');
-                       img.src =  response.data[i].thumbnails[0].url;
+                       img.src =  response.data[i].thumbnails[1].url;
+                    //    rowDivHidden.css({'background-image' : 'url('+jsonReturn.data[i].thumbnails[2].url+')','background-repeat': 'no-repeat'});
                    hiddenDiv.append(img, title, ign);
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
@@ -93,7 +94,6 @@ function apiCaller(type) {
                     $(".shownDiv").on("click", function() {
                     $("#divDump .hiddenDiv").css("display", "none");
                     $(this.nextElementSibling).css("display", "unset");
-
             ;})
         }
     });

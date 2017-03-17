@@ -1,32 +1,46 @@
-body {
-    width: 600px;
+
+#table, #divDump {
+    width: 500px;
     margin: auto;
     display: block;
     text-align: center;
-    border: 3px solid black;
-    text-align:center;
-
 }
 .hiddenDiv {
     border-image: 2px solid black;
     position: relative;
-    width: 600px;
-    height: 600px;
+    border-bottom: 1px solid grey;
+    max-width: 500px;
+    max-height: 500px;
+}
+.shownDiv {
+    position: relative;
+    border-bottom: 1px solid grey;
+    height: 100px;
+    padding-bottom: 5px;
 }
 .numDiv {
     float: left;
     margin-left: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
 }
 .titleDiv {
+    position: absolute;
     width: 400px;
     margin-right: auto;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 30px;
+    /*padding-top: 20px;*/
 }
 .textDiv {
-    width: 400px;
+    position: absolute;
     margin-right: auto;
-    padding-left: 30px;
+}
+.lengthDiv {
+    text-align: right;
+    margin-bottom: 10px;
 }
 .IGN {
     position: absolute;
@@ -74,9 +88,9 @@ body {
     font-size: 15px;
 }
 
-#leftButton {
+.videoButton {
     display: inline-block;
-    width: 270px;
+    width: 220px;
     height: 20px;
     background: red;
     padding: 10px;
@@ -86,9 +100,9 @@ body {
     font-weight: bold;
     text-decoration-color: red;
 }
-#rightButton {
+.articleButton {
     display: inline-block;
-    width: 270px;
+    width: 220px;
     height: 20px;
     background: red;
     padding: 10px;
