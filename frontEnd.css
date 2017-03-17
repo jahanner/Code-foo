@@ -24,6 +24,9 @@ body {
     border-bottom:1px dotted #ccc;
     background:#fff;
 }
+.shownDiv.hovered{
+    background-color: #DCDCDC;
+}
 .numDiv {
     float: left;
     width: 40px;
@@ -50,11 +53,10 @@ body {
     vertical-align: middle;
 }
 .lengthDiv {
-    text-align: right;
+    display: block;
     height: 38px;
     margin: 0 5px 0 0;
     line-height: 40px;
-    text-align: center;
     font-size: 12px;
     font-weight: bold;
     color: #767676;
@@ -117,6 +119,10 @@ body {
     border-radius: 15px 0 0 15px;
     font-weight: bold;
     border: 1px solid red;
+    text-decoration: none;
+}
+.videoButton.hovered {
+    text-decoration: underline;
 }
 .articleButton {
     display: inline-block;
@@ -127,4 +133,8 @@ body {
     border-radius:0 15px 15px 0px;
     font-weight: bold;
     border: 1px solid red;
+    text-decoration: none;
+}
+.articleButton.hovered {
+    text-decoration: underline;
 }

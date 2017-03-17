@@ -54,25 +54,41 @@ function apiCaller(type) {
                     ign.className = 'IGN';
                title = document.createElement('div');
                     title.className = 'title';
-               shownDiv.append(numDiv, titleDiv, textDiv, lengthDiv);
 
                shownDiv.id = "item # " + (i + 1);
 
-
+                $(function() {
+                $('.shownDiv').hover(function(){
+                    $(this).addClass('hovered');
+                },
+                function(){
+                    $(this).removeClass('hovered');
+                });
+            });
                if (type ==='articles') {
                    $(".articleButton").css("background-color", "red", "color", "white");
                    $(this).css("background-color", "red", "color", "white");
+                   $(function () {
                    $(".articleButton").hover(function() {
-                       $(this).css("text-decoration", "underline");
+                       $(this).addClass('hovered');
+                   },
+                       function () {
+                           $(this).removeClass('hovered');
+                       });
                    });
                    $(".videoButton").css("background-color", "white", "color", "red");
-                   $(this).css("text-decoration", "none");
+                   
                }
                else {
                    $(".videoButton").css("background-color", "red", "color", "white");
                    $(this).css("background-color", "red", "color", "white");
+                   $(function () {
                    $(".videoButton").hover(function() {
-                       $(this).css("text-decoration", "underline");
+                       $(this).addClass('hovered');
+                   },
+                       function () {
+                           $(this).removeClass('hovered');
+                       });
                    });
                    $(".articleButton").css("background-color", "white", "color", "red");
 
@@ -91,6 +107,7 @@ function apiCaller(type) {
                    hiddenDiv.append(img, title, ign);
                        hiddenDiv.id=(i+1);
                        document.getElementById('divDump').appendChild(hiddenDiv);
+
                }
                else {
                    titleDiv.append(response.data[i].metadata.name);
