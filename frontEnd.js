@@ -104,9 +104,14 @@ function apiCaller(type) {
                    document.getElementById("divDump").appendChild(shownDiv);
                    var img = document.createElement('img');
                    img.src =  response.data[i].thumbnails[1].url;
+                   img.className = 'img';
+                   $('.img').each(function() {
+                      var background = $(this).data('background');
+                      $(this).css('background-image', 'url('+background+')');
+                    });
                    hiddenDiv.append(img, title, ign);
                        hiddenDiv.id=(i+1);
-                       document.getElementById('divDump').appendChild(hiddenDiv);
+                   document.getElementById('divDump').appendChild(hiddenDiv);
 
                }
                else {
@@ -130,7 +135,11 @@ function apiCaller(type) {
                    document.getElementById("divDump").appendChild(shownDiv);
                    var img = document.createElement('img');
                    img.src =  response.data[i].thumbnails[1].url;
-                    //    rowDivHidden.css({'background-image' : 'url('+jsonReturn.data[i].thumbnails[2].url+')','background-repeat': 'no-repeat'});
+                   img.className = 'img';
+                   $('.img').each(function() {
+                      var background = $(this).data('background');
+                      $(this).css('background-image', 'url('+background+')');
+                    });
                    hiddenDiv.append(img, title, ign);
                        document.getElementById('divDump').appendChild(hiddenDiv);
                     }
