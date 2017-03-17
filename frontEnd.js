@@ -33,7 +33,7 @@ function apiCaller(type) {
             while(myNode.lastChild) {
                 myNode.removeChild(myNode.lastChild);
             }
-
+            
             for (var i = 0; i < response.data.length; i++){
                 //create div for each and give them class names.
                shownDiv = document.createElement("div");
