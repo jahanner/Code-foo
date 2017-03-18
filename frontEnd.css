@@ -65,10 +65,16 @@ body {
     font-size: 13px;
     overflow: hidden;
 }
-
+.date {
+    float:right;
+    font-size: 11px;
+    color: #777;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
 .lengthDiv {
     float:right;
-    font-size: 12px;
+    font-size: 11px;
     color: #777;
     font-weight: bold;
     padding-bottom: 5px;
