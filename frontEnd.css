@@ -133,8 +133,8 @@ body {
 }
 
 .videoButton {
-    display: inline-block;
-    width: 178px;
+    float: left;
+    width: 180px;
     height: 5px;
     border-radius: 15px 0 0 15px;
     font-weight: bold;
@@ -150,8 +150,8 @@ body {
     cursor: default;
 }
 .articleButton {
-    display: inline-block;
-    width: 178px;
+    float: right;
+    width: 180px;
     height: 5px;
     padding: 10px;
     border-radius:0 15px 15px 0px;

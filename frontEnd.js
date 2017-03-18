@@ -57,7 +57,7 @@ function apiCaller(type) {
                     date.className = 'date';
 
                shownDiv.id = "item # " + (i + 1);
-
+                //so I can manipulate div on hover
                 $(function() {
                 $('.shownDiv').hover(function(){
                     $(this).addClass('hovered');
@@ -107,7 +107,6 @@ function apiCaller(type) {
                    textDiv.append(response.data[i].metadata.subHeadline);
                    numDiv.append(index+i+1);
                    shownDiv.append(numDiv, titleDiv, textDiv, date);
-
                    document.getElementById("divDump").appendChild(shownDiv);
                    var img = document.createElement('img');
                    img.src =  response.data[i].thumbnails[1].url;
