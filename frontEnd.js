@@ -66,8 +66,9 @@ function apiCaller(type) {
             });
             //so I can change color and underline on click and hover
                if (type ==='articles') {
-                   $(".articleButton").css("background-color", "red", "color", "white");
-                   $(this).css("background-color", "red", "color", "white");
+                   $(".articleButton").css("background-color", "red");
+                   $(".articleButton").css("color", "white");
+                   $(this).css("background-color", "red");
                    $(function () {
                        $(".articleButton").hover(function() {
                        $(this).addClass('hovered');
@@ -76,12 +77,14 @@ function apiCaller(type) {
                            $(this).removeClass('hovered');
                        });
                    });
-                   $(".videoButton").css("background-color", "white", "color", "red");
+                   $(".videoButton").css("background-color", "white");
+                   $(".videoButton").css("color", "red");
 
                }
                else {
-                   $(".videoButton").css("background-color", "red", "color", "white");
-                   $(this).css("background-color", "red", "color", "white");
+                   $(".videoButton").css("background-color", "red");
+                   $(".videoButton").css("color", "white");
+                   $(this).css("background-color", "red");
                    $(function () {
                        $(".videoButton").hover(function() {
                        $(this).addClass('hovered');
@@ -90,8 +93,8 @@ function apiCaller(type) {
                            $(this).removeClass('hovered');
                        });
                    });
-                   $(".articleButton").css("background-color", "white", "color", "red");
-
+                   $(".articleButton").css("background-color", "white");
+                   $(".articleButton").css("color", "red");
                }
                if (type === "articles") {
                    //add correct data to different divs, put them in shownDiv and hiddenDiv
