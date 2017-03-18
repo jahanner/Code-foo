@@ -131,8 +131,8 @@ function apiCaller(type) {
                    //make minute second format for display
                    var m = Math.floor(response.data[i].metadata.duration / 60);
                    var s = Math.floor(response.data[i].metadata.duration % 60);
-                   minutes = m.toString();
-                   seconds = s.toString();
+                   var minutes = m.toString();
+                   var seconds = s.toString();
                    if (seconds.length !== 2) {
                        seconds += '0';
                    }
