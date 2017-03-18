@@ -68,9 +68,9 @@ function apiCaller(type) {
             });
             //so I can change color and underline on click and hover
                if (type ==='articles') {
-                   $(".articleButton").css("background-color", "red");
+                   $(".articleButton").css("background-color", "#cc0000");
                    $(".articleButton").css("color", "white");
-                   $(this).css("background-color", "red");
+                   $(this).css("background-color", "#cc0000");
                    $(function () {
                        $(".articleButton").hover(function() {
                        $(this).addClass('hovered');
@@ -80,12 +80,12 @@ function apiCaller(type) {
                        });
                    });
                    $(".videoButton").css("background-color", "white");
-                   $(".videoButton").css("color", "red");
+                   $(".videoButton").css("color", "#cc0000");
                }
                else {
-                   $(".videoButton").css("background-color", "red");
+                   $(".videoButton").css("background-color", "#cc0000");
                    $(".videoButton").css("color", "white");
-                   $(this).css("background-color", "red");
+                   $(this).css("background-color", "#cc0000");
                    $(function () {
                        $(".videoButton").hover(function() {
                        $(this).addClass('hovered');
@@ -95,12 +95,12 @@ function apiCaller(type) {
                        });
                    });
                    $(".articleButton").css("background-color", "white");
-                   $(".articleButton").css("color", "red");
+                   $(".articleButton").css("color", "#cc0000");
                }
                if (type === "articles") {
                    //add correct data to different divs, put them in shownDiv and hiddenDiv
                    titleDiv.append(response.data[i].metadata.headline);
-                   var d = response.data[i].metadata.publishDate.slice(0, 10).split('-');   
+                   var d = response.data[i].metadata.publishDate.slice(0, 10).split('-');
                    date.append(d[1] +'/'+ d[2] +'/'+ d[0]);
                    title.append(response.data[i].metadata.headline);
                    ign.append("GO TO IGN");

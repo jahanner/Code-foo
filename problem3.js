@@ -48,7 +48,7 @@ function possibleMoves(grid, x, y) {
     if (typeof(grid[x+1][y-1]) != 'undefined' && searchForArray(chain,[x, y])){
         moves.push([x][y]);
     }
-    if (typeof(grid[x-1][y]) != 'undefined' && searchForArray(chain,[x, y])){
+    if (grid[x-1][y] != 'undefined' && searchForArray(chain,[x, y])){
         moves.push([x][y]);
     }
     if (typeof(grid[x-1][y+1]) != 'undefined' && searchForArray(chain,[x, y])){
@@ -63,7 +63,9 @@ function possibleMoves(grid, x, y) {
 }
 
 function boggle(grid, x, y, chain, solutions) {
-    chain.push([x,y]);
+    if (possibleMoves(grid, x, y)){
+        chain.push([x,y]);
+    }
     //Determine if solution
     if (chain.length > 1 && findValueGivenChain(grid, chain) == 9){
         solutions.push(chain);
@@ -71,10 +73,9 @@ function boggle(grid, x, y, chain, solutions) {
     //if sum of chain < 9, find available positions
     // Then check if you've been to that position already
     else if (findValueGivenChain(grid, chain) < 9){
-        if (typeof(grid[x][y]) != 'undefined' && searchForArray(chain,[x, y])){
+        if (searchForArray(chain,[x, y])){
             solutions.concat(boggle(grid, x, y, chain, solutions))}
     return solutions;
     }
 }
-console.log(findValueGivenChain(grid,[[1, 0],[2, 3]]));
-console.log(grid[1][0]);
+console.log(boggle(grid, 0, 0, chain, solutions));

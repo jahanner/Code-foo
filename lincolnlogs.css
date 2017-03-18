@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     width: 1000px;
+    font-family: sans-serif;
 }
 
 html {
@@ -15,7 +16,7 @@ body {
 p {
     text-align: center;
     font-size: 17px;
-    font-weight: bold;
+    color: blue;
 }
 
 .img {
