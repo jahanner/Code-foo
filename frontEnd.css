@@ -19,11 +19,13 @@ body {
 }
 .img {
     border: 3px solid white;
-    width: 382px;
-    height: 200px;
+    width: 98.5%;
+    height: 100%;
     overflow: hidden;
     background-size: cover;
     background-position: center;
+    border-left-color: black;
+    border-right-color: black;
 }
 .shownDiv {
     width: 350px;
@@ -134,7 +136,8 @@ body {
 
 .videoButton {
     float: left;
-    width: 180px;
+    margin-left: 10px;
+    width: 170px;
     height: 5px;
     border-radius: 15px 0 0 15px;
     font-weight: bold;
@@ -151,7 +154,8 @@ body {
 }
 .articleButton {
     float: right;
-    width: 180px;
+    margin-right: 10px;
+    width: 170px;
     height: 5px;
     padding: 10px;
     border-radius:0 15px 15px 0px;
