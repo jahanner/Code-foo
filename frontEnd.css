@@ -15,6 +15,7 @@ body {
    width: 100%;;
    height: 100%;
    margin: 24px 0 0 0;
+
 }
 .img {
     border: 3px solid white;
@@ -53,16 +54,19 @@ body {
     display: table-cell;
     vertical-align: middle;
     padding-top: 5px;
-    height: 20px;
+    height: 15px;
+    overflow: hidden;
 }
 .textDiv {
     display: inline-table;
     width: 250px;
-    height: 15px;
+    height: 12px;
     padding: 0 5px 0 0;
     color: #777;
     font-size: 13px;
+    overflow: hidden;
 }
+
 .lengthDiv {
     float:right;
     font-size: 12px;

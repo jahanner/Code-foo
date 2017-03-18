@@ -76,4 +76,5 @@ function boggle(grid, x, y, chain, solutions) {
     return solutions;
     }
 }
-console.log(boggle(grid, 0, 0, [],[]));
+console.log(findValueGivenChain(grid,[[1, 0],[2, 3]]));
+console.log(grid[1][0]);
